@@ -1,166 +1,142 @@
-<h1>Weaviate <img alt='Weaviate logo' src='https://weaviate.io/img/site/weaviate-logo-light.png' width='148' align='right' /></h1>
-
-[![Go Reference](https://pkg.go.dev/badge/github.com/weaviate/weaviate.svg)](https://pkg.go.dev/github.com/weaviate/weaviate)
-[![Build Status](https://github.com/weaviate/weaviate/actions/workflows/.github/workflows/pull_requests.yaml/badge.svg?branch=main)](https://github.com/weaviate/weaviate/actions/workflows/.github/workflows/pull_requests.yaml)
-[![Go Report Card](https://goreportcard.com/badge/github.com/weaviate/weaviate)](https://goreportcard.com/report/github.com/weaviate/weaviate)
-[![Coverage Status](https://codecov.io/gh/weaviate/weaviate/branch/main/graph/badge.svg)](https://codecov.io/gh/weaviate/weaviate)
-[![Slack](https://img.shields.io/badge/slack--channel-blue?logo=slack)](https://weaviate.io/slack)
-[![GitHub Tutorials](https://img.shields.io/badge/Weaviate_Tutorials-green)](https://github.com/weaviate-tutorials/)
-
-## Overview
-
-Weaviate is a cloud-native, **open source vector database** that is robust, fast, and scalable.
-
-To get started quickly, have a look at one of these pages:
-
-- [Quickstart tutorial](https://weaviate.io/developers/weaviate/quickstart) To see Weaviate in action
-- [Contributor guide](https://weaviate.io/developers/contributor-guide) To contribute to this project
-
-For more details, read through the summary on this page or see the system [documentation](https://weaviate.io/developers/weaviate/).
-
-> [!NOTE]
-> **Help us improve your experience** by sharing your feedback, ideas and thoughts: Fill out our [Community Experience Survey](https://forms.gle/hrFGMqtVkdSG6ne48), preferably by June 14th, 2024.
-
----
-
-## Why Weaviate?
-
-Weaviate uses state-of-the-art machine learning (ML) models to turn your data - text, images, and more - into a searchable vector database.
-
-Here are some highlights.
-
-### Speed
-
-Weaviate is fast. The core engine can run a 10-NN nearest neighbor search on millions of objects in milliseconds. See [benchmarks](https://weaviate.io/developers/weaviate/benchmarks).
-
-### Flexibility
-
-Weaviate can **vectorize your data at import time**. Or, if you have already vectorized your data, you can **upload your own vectors** instead.
-
-Modules give you the flexibility to tune Weaviate for your needs. More than two dozen modules connect you to popular services and model hubs such as [OpenAI](https://weaviate.io/developers/weaviate/modules/retriever-vectorizer-modules/text2vec-openai), [Cohere](https://weaviate.io/developers/weaviate/modules/retriever-vectorizer-modules/text2vec-cohere), [VoyageAI](https://weaviate.io/developers/weaviate/modules/retriever-vectorizer-modules/text2vec-voyageai) and [HuggingFace](https://weaviate.io/developers/weaviate/modules/retriever-vectorizer-modules/text2vec-huggingface). Use custom modules to work with your own models or third party services.
-
-### Production-readiness
-
-Weaviate is built with [scaling](https://weaviate.io/developers/weaviate/concepts/cluster), [replication](https://weaviate.io/developers/weaviate/concepts/replication-architecture), and [security](https://weaviate.io/developers/weaviate/configuration/authentication) in mind so you can go smoothly from **rapid prototyping** to **production at scale**.
-
-### Beyond search
-
-Weaviate doesn't just power lightning-fast vector searches. Other superpowers include **recommendation**, **summarization**, and **integration with neural search frameworks**.
-
-## Who uses Weaviate?
-
-- **Software Engineers**
-
-  - Weaviate is an ML-first database engine
-  - Out-of-the-box modules for AI-powered searches, automatic classification, and LLM integration
-   - Full CRUD support
-   - Cloud-native, distributed system that runs well on Kubernetes
-   - Scales with your workloads
-
-- **Data Engineers**
-
-  - Weaviate is a fast, flexible vector database
-  - Use your own ML model or third party models
-  - Run locally or with an inference service
-
-- **Data Scientists**
-
-   - Seamless handover of Machine Learning models to engineers and MLOps
-   - Deploy and maintain your ML models in production reliably and efficiently
-   - Easily package custom trained models
-
-## What can you build with Weaviate?
-
-A Weaviate vector database can search text, images, or a combination of both. Fast vector search provides a foundation for chatbots, recommendation systems, summarizers, and classification systems.
-
-Here are some examples that show how Weaviate integrates with other AI and ML tools:
-
-### Use Weaviate with third party embeddings
-
-- [Cohere](https://weaviate.io/developers/weaviate/modules/retriever-vectorizer-modules/text2vec-cohere) ([blogpost](https://txt.cohere.com/embedding-archives-wikipedia/))
-- [Hugging Face](https://weaviate.io/developers/weaviate/modules/retriever-vectorizer-modules/text2vec-huggingface)
-- [OpenAI](https://github.com/openai/openai-cookbook/tree/main/examples/vector_databases/weaviate)
-
-### Use Weaviate as a document store
-
-- [DocArray](https://docarray.jina.ai/advanced/document-store/weaviate/)
-- [Haystack](https://docs.haystack.deepset.ai/reference/integrations-weaviate#weaviatedocumentstore) ([blogpost](https://www.deepset.ai/weaviate-vector-search-engine-integration))
-
-### Use Weaviate as a memory backend
-
-- [Auto-GPT](https://github.com/Significant-Gravitas/Auto-GPT/blob/master/docs/configuration/memory.md#weaviate-setup) ([blogpost](https://weaviate.io/blog/autogpt-and-weaviate))
-- [LangChain](https://python.langchain.com/docs/integrations/providers/weaviate) ([blogpost](https://weaviate.io/blog/combining-langchain-and-weaviate))
-- [LlamaIndex](https://gpt-index.readthedocs.io/en/latest/how_to/integrations/vector_stores.html) ([blogpost](https://weaviate.io/blog/llamaindex-and-weaviate))
-- [OpenAI - ChatGPT retrieval plugin](https://github.com/openai/chatgpt-retrieval-plugin/blob/main/docs/providers/weaviate/setup.md)
-
-### Demos
-
-These demos are working applications that highlight some of Weaviate's capabilities. Their source code is available on GitHub.
-
-- [Verba, the Golden RAGtreiver](https://verba.weaviate.io) ([GitHub](https://github.com/weaviate/verba))
-- [Healthsearch](https://healthsearch.weaviate.io) ([GitHub](https://github.com/weaviate/healthsearch-demo))
-- [Awesome-Moviate](https://awesome-moviate.weaviate.io/) ([GitHub](https://github.com/weaviate-tutorials/awesome-moviate))
-
-## How can you connect to Weaviate?
-
-Weaviate exposes a [GraphQL API](https://weaviate.io/developers/weaviate/api/graphql) and a [REST API](https://weaviate.io/developers/weaviate/api/rest). Starting in v1.23, a new [gRPC API](https://weaviate.io/developers/weaviate/api/grpc) provides even faster access to your data.
-
-Weaviate provides client libraries for several popular languages:
-
-- [Python](https://weaviate.io/developers/weaviate/client-libraries/python)
-- [JavaScript/TypeScript](https://weaviate.io/developers/weaviate/client-libraries/typescript)
-- [Go](https://weaviate.io/developers/weaviate/client-libraries/go)
-- [Java](https://weaviate.io/developers/weaviate/client-libraries/java)
-
-There are also [community supported libraries](https://weaviate.io/developers/weaviate/client-libraries/community) for additional languages.
-
-## Where can You learn more?
-
-Free, self-paced courses in [Weaviate Academy](https://weaviate.io/developers/academy) teach you how to use Weaviate. The [Tutorials repo](https://github.com/weaviate-tutorials) has code for example projects. The [Recipes repo](https://github.com/weaviate/recipes) has even more project code to get you started.
-
-The [Weaviate blog](https://weaviate.io/blog) and [podcast](https://weaviate.io/podcast) regularly post stories on Weaviate and AI.
-
-Here are some popular posts:
-
-### Blogs
-
-- [What to expect from Weaviate in 2023](https://weaviate.io/blog/what-to-expect-from-weaviate-in-2023)
-- [Why is vector search so fast?](https://weaviate.io/blog/Why-is-Vector-Search-so-fast)
-- [Cohere Multilingual ML Models with Weaviate](https://weaviate.io/blog/Cohere-multilingual-with-weaviate)
-- [Vamana vs. HNSW - Exploring ANN algorithms Part 1](https://weaviate.io/blog/ann-algorithms-vamana-vs-hnsw)
-- [HNSW+PQ - Exploring ANN algorithms Part 2.1](https://weaviate.io/blog/ann-algorithms-hnsw-pq)
-- [The Tile Encoder - Exploring ANN algorithms Part 2.2](https://weaviate.io/blog/ann-algorithms-tiles-enocoder)
-- [How GPT4.0 and other Large Language Models Work](https://weaviate.io/blog/what-are-llms)
-- [Monitoring Weaviate in Production](https://weaviate.io/blog/monitoring-weaviate-in-production)
-- [The ChatGPT Retrieval Plugin - Weaviate as a Long-term Memory Store for Generative AI](https://weaviate.io/blog/weaviate-retrieval-plugin)
-- [Combining LangChain and Weaviate](https://weaviate.io/blog/combining-langchain-and-weaviate)
-- [How to build an Image Search Application with Weaviate](https://weaviate.io/blog/how-to-build-an-image-search-application-with-weaviate)
-- [Cohere Multilingual ML Models with Weaviate](https://weaviate.io/blog/cohere-multilingual-with-weaviate)
-- [Building Multimodal AI in TypeScript](https://weaviate.io/blog/multimodal-search-in-typescript)
-- [Giving Auto-GPT Long-Term Memory with Weaviate](https://weaviate.io/blog/autogpt-and-weaviate)
-
-### Podcasts
-
-- [Neural Magic in Weaviate](https://www.youtube.com/watch?v=leGgjIQkVYo)
-- [BERTopic](https://www.youtube.com/watch?v=IwXOaHanfUU)
-- [Jina AI's Neural Search Framework](https://www.youtube.com/watch?v=o6MD0tWl0SM)
-
-### Other reading
-
-- [Weaviate is an open-source search engine powered by ML, vectors, graphs, and GraphQL (ZDNet)](https://www.zdnet.com/article/weaviate-an-open-source-search-engine-powered-by-machine-learning-vectors-graphs-and-graphql/)
-- [Weaviate, an ANN Database with CRUD support (DB-Engines.com)](https://db-engines.com/en/blog_post/87)
-- [A sub-50ms neural search with DistilBERT and Weaviate (Towards Datascience)](https://towardsdatascience.com/a-sub-50ms-neural-search-with-distilbert-and-weaviate-4857ae390154)
-- [Getting Started with Weaviate Python Library (Towards Datascience)](https://towardsdatascience.com/getting-started-with-weaviate-python-client-e85d14f19e4f)
-
-## Join our community!
-
-At Weaviate, we love to connect with our community. We love helping amazing people build cool things. And, we love to talk with you about you passion for vector databases and AI.
-
-Please reach out, and join our community:
-
-- [Community forum](https://forum.weaviate.io)
-- [GitHub](https://github.com/weaviate/weaviate)
-- [Slack](https://weaviate.io/slack)
-- [X (Twitter)](https://twitter.com/weaviate_io)
-
-To keep up to date with new releases, meetup news, and more, subscribe to our [newsletter](https://newsletter.weaviate.io/)
+<div class="Box-sc-g0xbh4-0 QkQOb js-snippet-clipboard-copy-unpositioned" data-hpc="true"><article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto"><font _mstmutation="1" _msttexthash="12501424" _msthash="342">维维亚特</font><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/9596f581ae876f09b7cb2f278566f5832e68ee60c65d8e9a5ba48f6a27cd2b55/68747470733a2f2f77656176696174652e696f2f696d672f736974652f77656176696174652d6c6f676f2d6c696768742e706e67"><img alt="Weaviate 标志" src="https://camo.githubusercontent.com/9596f581ae876f09b7cb2f278566f5832e68ee60c65d8e9a5ba48f6a27cd2b55/68747470733a2f2f77656176696174652e696f2f696d672f736974652f77656176696174652d6c6f676f2d6c696768742e706e67" width="148" align="right" data-canonical-src="https://weaviate.io/img/site/weaviate-logo-light.png" style="max-width: 100%;" _mstalt="206128" _msthash="343"></a></h1><a id="user-content-weaviate-" class="anchor" aria-label="永久链接： Weaviate" href="#weaviate-" _mstaria-label="366808" _msthash="344"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><a href="https://pkg.go.dev/github.com/weaviate/weaviate" rel="nofollow"><img src="https://camo.githubusercontent.com/c9d5df3a3c25c1aaee20b3ef66f323bfd6d0939de1e58d08c4cd7a782ff08a9c/68747470733a2f2f706b672e676f2e6465762f62616467652f6769746875622e636f6d2f77656176696174652f77656176696174652e737667" alt="Go 参考" data-canonical-src="https://pkg.go.dev/badge/github.com/weaviate/weaviate.svg" style="max-width: 100%;" _mstalt="173082" _msthash="345"></a>
+<a href="https://github.com/weaviate/weaviate/actions/workflows/.github/workflows/pull_requests.yaml"><img src="https://github.com/weaviate/weaviate/actions/workflows/.github/workflows/pull_requests.yaml/badge.svg?branch=main" alt="构建状态" style="max-width: 100%;" _mstalt="181376" _msthash="346"></a>
+<a href="https://goreportcard.com/report/github.com/weaviate/weaviate" rel="nofollow"><img src="https://camo.githubusercontent.com/ee944df2957c4d3526bfa34ffa6b39174d9ee32e6d51cba7ea0596dd4af00071/68747470733a2f2f676f7265706f7274636172642e636f6d2f62616467652f6769746875622e636f6d2f77656176696174652f7765617669617465" alt="Go 成绩单" data-canonical-src="https://goreportcard.com/badge/github.com/weaviate/weaviate" style="max-width: 100%;" _mstalt="196274" _msthash="347"></a>
+<a href="https://codecov.io/gh/weaviate/weaviate" rel="nofollow"><img src="https://camo.githubusercontent.com/89bbba2a636c8fdf46766294bfd1ba2956d6983b9ae7cbd52693fb68ea277e23/68747470733a2f2f636f6465636f762e696f2f67682f77656176696174652f77656176696174652f6272616e63682f6d61696e2f67726170682f62616467652e737667" alt="覆盖状态" data-canonical-src="https://codecov.io/gh/weaviate/weaviate/branch/main/graph/badge.svg" style="max-width: 100%;" _mstalt="259493" _msthash="348"></a>
+<a href="https://weaviate.io/slack" rel="nofollow"><img src="https://camo.githubusercontent.com/f7ed7cc41da5e75282eace2e5b06d1e0af46621c3c40c4314ca6374d8b2b0161/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f736c61636b2d2d6368616e6e656c2d626c75653f6c6f676f3d736c61636b" alt="松弛" data-canonical-src="https://img.shields.io/badge/slack--channel-blue?logo=slack" style="max-width: 100%;" _mstalt="58305" _msthash="349"></a>
+<a href="https://github.com/weaviate-tutorials/"><img src="https://camo.githubusercontent.com/684b84476432e43657230d2790ef00a78619c6c27906ab7534387b658329903e/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f57656176696174655f5475746f7269616c732d677265656e" alt="GitHub 教程" data-canonical-src="https://img.shields.io/badge/Weaviate_Tutorials-green" style="max-width: 100%;" _mstalt="286728" _msthash="350"></a></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto" _msttexthash="6290102" _msthash="351">概述</h2><a id="user-content-overview" class="anchor" aria-label="永久链接： 概述" href="#overview" _mstaria-label="375934" _msthash="352"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto" _msttexthash="227961565" _msthash="353">Weaviate 是一个云原生的<strong _istranslated="1">开源矢量数据库</strong>，强大、快速且可扩展。</p>
+<p dir="auto" _msttexthash="101955893" _msthash="354">要快速入门，请查看以下页面之一：</p>
+<ul dir="auto">
+<li _msttexthash="79925092" _msthash="355"><a href="https://weaviate.io/developers/weaviate/quickstart" rel="nofollow" _istranslated="1">快速入门教程</a>查看 Weaviate 的实际应用</li>
+<li _msttexthash="61817613" _msthash="356"><a href="https://weaviate.io/developers/contributor-guide" rel="nofollow" _istranslated="1">贡献者指南</a>为本项目做出贡献</li>
+</ul>
+<p dir="auto" _msttexthash="207473370" _msthash="357">有关更多详细信息，请通读本页面上的摘要或查看系统<a href="https://weaviate.io/developers/weaviate/" rel="nofollow" _istranslated="1">文档</a>。</p>
+<div class="markdown-alert markdown-alert-note" dir="auto"><p class="markdown-alert-title" dir="auto"><svg class="octicon octicon-info mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg><font _mstmutation="1" _msttexthash="5121168" _msthash="358">注意</font></p><p dir="auto" _msttexthash="546766532" _msthash="359">通过分享您的反馈、想法和想法<strong _istranslated="1">来帮助我们改善您的体验</strong>：填写我们的<a href="https://forms.gle/hrFGMqtVkdSG6ne48" rel="nofollow" _istranslated="1">社区体验调查</a>，最好在 2024 年 6 月 14 日之前完成。</p>
+</div>
+<hr>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto" _msttexthash="31825612" _msthash="360">为什么选择 Weaviate？</h2><a id="user-content-why-weaviate" class="anchor" aria-label="永久链接： 为什么选择 Weaviate？" href="#why-weaviate" _mstaria-label="495248" _msthash="361"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto" _msttexthash="548056704" _msthash="362">Weaviate 使用最先进的机器学习 （ML） 模型将您的数据（文本、图像等）转换为可搜索的矢量数据库。</p>
+<p dir="auto" _msttexthash="22705540" _msthash="363">以下是一些亮点。</p>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto" _msttexthash="5877365" _msthash="364">速度</h3><a id="user-content-speed" class="anchor" aria-label="永久链接：速度" href="#speed" _mstaria-label="269763" _msthash="365"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto" _msttexthash="484660540" _msthash="366">Weaviate 速度很快。核心引擎可以在几毫秒内对数百万个对象运行 10-NN 最近邻搜索。请参阅 <a href="https://weaviate.io/developers/weaviate/benchmarks" rel="nofollow" _istranslated="1">基准测试</a>。</p>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto" _msttexthash="8407906" _msthash="367">灵活性</h3><a id="user-content-flexibility" class="anchor" aria-label="永久链接：灵活性" href="#flexibility" _mstaria-label="481182" _msthash="368"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto" _msttexthash="588449433" _msthash="369">Weaviate 可以在<strong _istranslated="1">导入时对数据进行矢量化</strong>。或者，如果您已经对数据进行了矢量化，则可以<strong _istranslated="1">上传自己的矢量</strong>。</p>
+<p dir="auto" _msttexthash="1381151122" _msthash="370">模块让您可以灵活地根据您的需要调整 Weaviate。二十多个模块将您连接到流行的服务和模型中心，例如 <a href="https://weaviate.io/developers/weaviate/modules/retriever-vectorizer-modules/text2vec-openai" rel="nofollow" _istranslated="1">OpenAI</a>、<a href="https://weaviate.io/developers/weaviate/modules/retriever-vectorizer-modules/text2vec-cohere" rel="nofollow" _istranslated="1">Cohere</a>、<a href="https://weaviate.io/developers/weaviate/modules/retriever-vectorizer-modules/text2vec-voyageai" rel="nofollow" _istranslated="1">VoyageAI</a> 和 <a href="https://weaviate.io/developers/weaviate/modules/retriever-vectorizer-modules/text2vec-huggingface" rel="nofollow" _istranslated="1">HuggingFace</a>。使用自定义模块与您自己的模型或第三方服务配合使用。</p>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto" _msttexthash="11807510" _msthash="371">生产就绪</h3><a id="user-content-production-readiness" class="anchor" aria-label="永久链接：生产就绪" href="#production-readiness" _mstaria-label="860587" _msthash="372"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto" _msttexthash="448190652" _msthash="373">Weaviate 在构建时考虑了<a href="https://weaviate.io/developers/weaviate/concepts/cluster" rel="nofollow" _istranslated="1">扩展</a>、<a href="https://weaviate.io/developers/weaviate/concepts/replication-architecture" rel="nofollow" _istranslated="1">复制</a><a href="https://weaviate.io/developers/weaviate/configuration/authentication" rel="nofollow" _istranslated="1">和安全性</a>，因此您可以顺利地从<strong _istranslated="1">快速原型设计</strong>到<strong _istranslated="1">大规模生产</strong>。</p>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto" _msttexthash="10973495" _msthash="374">搜索之外</h3><a id="user-content-beyond-search" class="anchor" aria-label="永久链接：超越搜索" href="#beyond-search" _mstaria-label="510861" _msthash="375"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto" _msttexthash="479316032" _msthash="376">Weaviate 不仅支持闪电般快速的矢量搜索。其他超能力包括<strong _istranslated="1">推荐</strong>、<strong _istranslated="1">摘要</strong>以及与<strong _istranslated="1">神经搜索框架的集成</strong>。</p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto" _msttexthash="28149810" _msthash="377">谁在使用 Weaviate？</h2><a id="user-content-who-uses-weaviate" class="anchor" aria-label="永久链接：谁在使用 Weaviate？" href="#who-uses-weaviate" _mstaria-label="663884" _msthash="378"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li>
+<p dir="auto"><strong _msttexthash="15759900" _msthash="379">软件工程师</strong></p>
+<ul dir="auto">
+<li _msttexthash="60602607" _msthash="380">Weaviate 是 ML 优先的数据库引擎</li>
+<li _msttexthash="157919424" _msthash="381">用于 AI 驱动的搜索、自动分类和 LLM 集成的开箱即用模块</li>
+<li _msttexthash="18085353" _msthash="382">完整的 CRUD 支持</li>
+<li _msttexthash="124021417" _msthash="383">在 Kubernetes 上运行良好的云原生分布式系统</li>
+<li _msttexthash="26258323" _msthash="384">随工作负载扩展</li>
+</ul>
+</li>
+<li>
+<p dir="auto"><strong _msttexthash="15326519" _msthash="385">数据工程师</strong></p>
+<ul dir="auto">
+<li _msttexthash="101357165" _msthash="386">Weaviate 是一个快速、灵活的载体数据库</li>
+<li _msttexthash="68807492" _msthash="387">使用您自己的 ML 模型或第三方模型</li>
+<li _msttexthash="51912198" _msthash="388">在本地运行或使用推理服务</li>
+</ul>
+</li>
+<li>
+<p dir="auto"><strong _msttexthash="15058043" _msthash="389">数据科学家</strong></p>
+<ul dir="auto">
+<li _msttexthash="78024752" _msthash="390">将机器学习模型无缝移交给工程师和 MLOps</li>
+<li _msttexthash="101369021" _msthash="391">在生产环境中可靠高效地部署和维护 ML 模型</li>
+<li _msttexthash="47046519" _msthash="392">轻松打包自定义训练模型</li>
+</ul>
+</li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto" _msttexthash="54132013" _msthash="393">你可以用 Weaviate 构建什么？</h2><a id="user-content-what-can-you-build-with-weaviate" class="anchor" aria-label="永久链接：你可以用 Weaviate 构建什么？" href="#what-can-you-build-with-weaviate" _mstaria-label="1296724" _msthash="394"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto" _msttexthash="694675332" _msthash="395">Weaviate 矢量数据库可以搜索文本、图像或两者的组合。快速向量搜索为聊天机器人、推荐系统、摘要和分类系统提供了基础。</p>
+<p dir="auto" _msttexthash="182678249" _msthash="396">以下是一些示例，展示了 Weaviate 如何与其他 AI 和 ML 工具集成：</p>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto" _msttexthash="69033666" _msthash="397">将 Weaviate 与第三方嵌入一起使用</h3><a id="user-content-use-weaviate-with-third-party-embeddings" class="anchor" aria-label="永久链接：将 Weaviate 与第三方嵌入一起使用" href="#use-weaviate-with-third-party-embeddings" _mstaria-label="1792817" _msthash="398"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><font _mstmutation="1" _msttexthash="31924399" _msthash="399"><a href="https://weaviate.io/developers/weaviate/modules/retriever-vectorizer-modules/text2vec-cohere" rel="nofollow" _mstmutation="1" _istranslated="1">Cohere</a> （<a href="https://txt.cohere.com/embedding-archives-wikipedia/" rel="nofollow" _mstmutation="1" _istranslated="1">博客文章</a></font>)</li>
+<li><a href="https://weaviate.io/developers/weaviate/modules/retriever-vectorizer-modules/text2vec-huggingface" rel="nofollow" _msttexthash="8801767" _msthash="400">拥抱脸</a></li>
+<li><a href="https://github.com/openai/openai-cookbook/tree/main/examples/vector_databases/weaviate" _msttexthash="19294158" _msthash="401">开放人工智能</a></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto" _msttexthash="39938561" _msthash="402">使用 Weaviate 作为文档存储</h3><a id="user-content-use-weaviate-as-a-document-store" class="anchor" aria-label="永久链接：使用 Weaviate 作为文档存储" href="#use-weaviate-as-a-document-store" _mstaria-label="1270230" _msthash="403"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><a href="https://docarray.jina.ai/advanced/document-store/weaviate/" rel="nofollow" _msttexthash="12401389" _msthash="404">文档数组</a></li>
+<li><font _mstmutation="1" _msttexthash="23027147" _msthash="405"><a href="https://docs.haystack.deepset.ai/reference/integrations-weaviate#weaviatedocumentstore" rel="nofollow" _mstmutation="1" _istranslated="1">Haystack</a> （<a href="https://www.deepset.ai/weaviate-vector-search-engine-integration" rel="nofollow" _mstmutation="1" _istranslated="1">博文</a></font>)</li>
+</ul>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto" _msttexthash="40391247" _msthash="406">使用 Weaviate 作为内存后端</h3><a id="user-content-use-weaviate-as-a-memory-backend" class="anchor" aria-label="永久链接：使用 Weaviate 作为内存后端" href="#use-weaviate-as-a-memory-backend" _mstaria-label="1246947" _msthash="407"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><font _mstmutation="1" _msttexthash="36297612" _msthash="408"><a href="https://github.com/Significant-Gravitas/Auto-GPT/blob/master/docs/configuration/memory.md#weaviate-setup" _mstmutation="1" _istranslated="1">Auto-GPT</a> （<a href="https://weaviate.io/blog/autogpt-and-weaviate" rel="nofollow" _mstmutation="1" _istranslated="1">博客文章</a></font>)</li>
+<li><font _mstmutation="1" _msttexthash="38509133" _msthash="409"><a href="https://python.langchain.com/docs/integrations/providers/weaviate" rel="nofollow" _mstmutation="1" _istranslated="1">LangChain</a> （<a href="https://weaviate.io/blog/combining-langchain-and-weaviate" rel="nofollow" _mstmutation="1" _istranslated="1">博客文章</a></font>)</li>
+<li><font _mstmutation="1" _msttexthash="40711385" _msthash="410"><a href="https://gpt-index.readthedocs.io/en/latest/how_to/integrations/vector_stores.html" rel="nofollow" _mstmutation="1" _istranslated="1">LlamaIndex</a>（<a href="https://weaviate.io/blog/llamaindex-and-weaviate" rel="nofollow" _mstmutation="1" _istranslated="1">博客文章</a></font>)</li>
+<li><a href="https://github.com/openai/chatgpt-retrieval-plugin/blob/main/docs/providers/weaviate/setup.md" _msttexthash="30639648" _msthash="411">OpenAI - ChatGPT 检索插件</a></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto" _msttexthash="5815212" _msthash="412">演示</h3><a id="user-content-demos" class="anchor" aria-label="永久链接： Demos" href="#demos" _mstaria-label="272545" _msthash="413"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto" _msttexthash="288281695" _msthash="414">这些演示是突出 Weaviate 某些功能的工作应用程序。他们的源代码可以在 GitHub 上找到。</p>
+<ul dir="auto">
+<li><font _mstmutation="1" _msttexthash="45595433" _msthash="415"><a href="https://verba.weaviate.io" rel="nofollow" _mstmutation="1" _istranslated="1">Verba，黄金 RAGtreiver</a> （<a href="https://github.com/weaviate/verba" _mstmutation="1" _istranslated="1">GitHub</a></font>)</li>
+<li><font _mstmutation="1" _msttexthash="38565917" _msthash="416"><a href="https://healthsearch.weaviate.io" rel="nofollow" _mstmutation="1" _istranslated="1">Healthsearch</a> （<a href="https://github.com/weaviate/healthsearch-demo" _mstmutation="1" _istranslated="1">GitHub）</a></font>)</li>
+<li><font _mstmutation="1" _msttexthash="56039659" _msthash="417"><a href="https://awesome-moviate.weaviate.io/" rel="nofollow" _mstmutation="1" _istranslated="1">Awesome-Moviate</a> （<a href="https://github.com/weaviate-tutorials/awesome-moviate" _mstmutation="1" _istranslated="1">GitHub的）</a></font>)</li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto" _msttexthash="36736102" _msthash="418">您如何连接到 Weaviate？</h2><a id="user-content-how-can-you-connect-to-weaviate" class="anchor" aria-label="永久链接：如何连接到 Weaviate？" href="#how-can-you-connect-to-weaviate" _mstaria-label="1238471" _msthash="419"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto" _msttexthash="379079090" _msthash="420">Weaviate 公开了 <a href="https://weaviate.io/developers/weaviate/api/graphql" rel="nofollow" _istranslated="1">GraphQL API</a> 和 <a href="https://weaviate.io/developers/weaviate/api/rest" rel="nofollow" _istranslated="1">REST API</a>。从 v1.23 开始，新的 <a href="https://weaviate.io/developers/weaviate/api/grpc" rel="nofollow" _istranslated="1">gRPC API</a> 可以更快地访问您的数据。</p>
+<p dir="auto" _msttexthash="141541179" _msthash="421">Weaviate 为几种流行的语言提供了客户端库：</p>
+<ul dir="auto">
+<li><a href="https://weaviate.io/developers/weaviate/client-libraries/python" rel="nofollow" _msttexthash="3164070" _msthash="422">蟒</a></li>
+<li><a href="https://weaviate.io/developers/weaviate/client-libraries/typescript" rel="nofollow" _msttexthash="473122" _msthash="423">JavaScript/TypeScript</a></li>
+<li><a href="https://weaviate.io/developers/weaviate/client-libraries/go" rel="nofollow" _msttexthash="1950585" _msthash="424">去</a></li>
+<li><a href="https://weaviate.io/developers/weaviate/client-libraries/java" rel="nofollow" _msttexthash="7690397" _msthash="425">爪哇岛</a></li>
+</ul>
+<p dir="auto" _msttexthash="56971005" _msthash="426">还有<a href="https://weaviate.io/developers/weaviate/client-libraries/community" rel="nofollow" _istranslated="1">社区支持</a>的其他语言库。</p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto" _msttexthash="57677711" _msthash="427">在哪里可以了解更多信息？</h2><a id="user-content-where-can-you-learn-more" class="anchor" aria-label="永久链接： 在哪里可以了解更多信息？" href="#where-can-you-learn-more" _mstaria-label="903760" _msthash="428"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto" _msttexthash="931334664" _msthash="429"><a href="https://weaviate.io/developers/academy" rel="nofollow" _istranslated="1">Weaviate Academy</a> 中的免费自定进度课程教您如何使用 Weaviate。<a href="https://github.com/weaviate-tutorials" _istranslated="1">Tutorials 存储库</a>包含示例项目的代码。<a href="https://github.com/weaviate/recipes" _istranslated="1">Recipes 存储库</a>包含更多项目代码来帮助您入门。</p>
+<p dir="auto" _msttexthash="121336813" _msthash="430"><a href="https://weaviate.io/blog" rel="nofollow" _istranslated="1">Weaviate 博客</a>和<a href="https://weaviate.io/podcast" rel="nofollow" _istranslated="1">播客</a>定期发布有关 Weaviate 和 AI 的故事。</p>
+<p dir="auto" _msttexthash="45970743" _msthash="431">以下是一些热门帖子：</p>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto" _msttexthash="4381390" _msthash="432">博客</h3><a id="user-content-blogs" class="anchor" aria-label="永久链接： 博客" href="#blogs" _mstaria-label="272155" _msthash="433"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><a href="https://weaviate.io/blog/what-to-expect-from-weaviate-in-2023" rel="nofollow" _msttexthash="25735320" _msthash="434">2023 年 Weaviate 的期待</a></li>
+<li><a href="https://weaviate.io/blog/Why-is-Vector-Search-so-fast" rel="nofollow" _msttexthash="53962012" _msthash="435">为什么向量搜索这么快？</a></li>
+<li><a href="https://weaviate.io/blog/Cohere-multilingual-with-weaviate" rel="nofollow" _msttexthash="43916964" _msthash="436">将多语言 ML 模型与 Weaviate 融合</a></li>
+<li><a href="https://weaviate.io/blog/ann-algorithms-vamana-vs-hnsw" rel="nofollow" _msttexthash="69239027" _msthash="437">Vamana 与 HNSW - 探索 ANN 算法第 1 部分</a></li>
+<li><a href="https://weaviate.io/blog/ann-algorithms-hnsw-pq" rel="nofollow" _msttexthash="56569136" _msthash="438">HNSW+PQ - 探索 ANN 算法 第 2.1 部分</a></li>
+<li><a href="https://weaviate.io/blog/ann-algorithms-tiles-enocoder" rel="nofollow" _msttexthash="67443506" _msthash="439">Tile Encoder - 探索 ANN 算法 第 2.2 部分</a></li>
+<li><a href="https://weaviate.io/blog/what-are-llms" rel="nofollow" _msttexthash="90623923" _msthash="440">GPT4.0 和其他大型语言模型的工作原理</a></li>
+<li><a href="https://weaviate.io/blog/monitoring-weaviate-in-production" rel="nofollow" _msttexthash="19318910" _msthash="441">监控生产中的 Weaviate</a></li>
+<li><a href="https://weaviate.io/blog/weaviate-retrieval-plugin" rel="nofollow" _msttexthash="161705154" _msthash="442">ChatGPT 检索插件 - Weaviate 作为生成式 AI 的长期记忆存储</a></li>
+<li><a href="https://weaviate.io/blog/combining-langchain-and-weaviate" rel="nofollow" _msttexthash="10646532" _msthash="443">结合 LangChain 和 Weaviate</a></li>
+<li><a href="https://weaviate.io/blog/how-to-build-an-image-search-application-with-weaviate" rel="nofollow" _msttexthash="90937873" _msthash="444">如何使用 Weaviate 构建图像搜索应用程序</a></li>
+<li><a href="https://weaviate.io/blog/cohere-multilingual-with-weaviate" rel="nofollow" _msttexthash="43916964" _msthash="445">将多语言 ML 模型与 Weaviate 融合</a></li>
+<li><a href="https://weaviate.io/blog/multimodal-search-in-typescript" rel="nofollow" _msttexthash="41142296" _msthash="446">在 TypeScript 中构建多模态 AI</a></li>
+<li><a href="https://weaviate.io/blog/autogpt-and-weaviate" rel="nofollow" _msttexthash="61807187" _msthash="447">使用 Weaviate 提供 Auto-GPT 长期记忆</a></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto" _msttexthash="4784975" _msthash="448">播客</h3><a id="user-content-podcasts" class="anchor" aria-label="永久链接：播客" href="#podcasts" _mstaria-label="370734" _msthash="449"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><a href="https://www.youtube.com/watch?v=leGgjIQkVYo" rel="nofollow" _msttexthash="41854878" _msthash="450">Weaviate 中的神经魔法</a></li>
+<li><a href="https://www.youtube.com/watch?v=IwXOaHanfUU" rel="nofollow" _msttexthash="8638552" _msthash="451">BERTopic 公司</a></li>
+<li><a href="https://www.youtube.com/watch?v=o6MD0tWl0SM" rel="nofollow" _msttexthash="42390686" _msthash="452">Jina AI 的神经搜索框架</a></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto" _msttexthash="13148577" _msthash="453">其他阅读</h3><a id="user-content-other-reading" class="anchor" aria-label="永久链接： 其他阅读" href="#other-reading" _mstaria-label="511537" _msthash="454"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><a href="https://www.zdnet.com/article/weaviate-an-open-source-search-engine-powered-by-machine-learning-vectors-graphs-and-graphql/" rel="nofollow" _msttexthash="312438633" _msthash="455">Weaviate 是一个由 ML、矢量、图形和 GraphQL （ZDNet） 提供支持的开源搜索引擎</a></li>
+<li><a href="https://db-engines.com/en/blog_post/87" rel="nofollow" _msttexthash="121745832" _msthash="456">Weaviate，支持 CRUD 的 ANN 数据库 （DB-Engines.com）</a></li>
+<li><a href="https://towardsdatascience.com/a-sub-50ms-neural-search-with-distilbert-and-weaviate-4857ae390154" rel="nofollow" _msttexthash="326002157" _msthash="457">使用 DistilBERT 和 Weaviate 进行低于 50 毫秒的神经搜索（面向数据科学）</a></li>
+<li><a href="https://towardsdatascience.com/getting-started-with-weaviate-python-client-e85d14f19e4f" rel="nofollow" _msttexthash="130115869" _msthash="458">Weaviate Python 库入门（面向数据科学）</a></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto" _msttexthash="34318089" _msthash="459">加入我们的社区！</h2><a id="user-content-join-our-community" class="anchor" aria-label="永久链接：加入我们的社区！" href="#join-our-community" _mstaria-label="719732" _msthash="460"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto" _msttexthash="928236920" _msthash="461">在 Weaviate，我们喜欢与我们的社区建立联系。我们喜欢帮助了不起的人建造很酷的东西。而且，我们很乐意与您谈论您对矢量数据库和 AI 的热情。</p>
+<p dir="auto" _msttexthash="86579623" _msthash="462">请联系我们，并加入我们的社区：</p>
+<ul dir="auto">
+<li><a href="https://forum.weaviate.io" rel="nofollow" _msttexthash="12132562" _msthash="463">社区论坛</a></li>
+<li><a href="https://github.com/weaviate/weaviate" _msttexthash="5199792" _msthash="464">GitHub的</a></li>
+<li><a href="https://weaviate.io/slack" rel="nofollow" _msttexthash="4943042" _msthash="465">松弛</a></li>
+<li><a href="https://twitter.com/weaviate_io" rel="nofollow" _msttexthash="22928841" _msthash="466">X （推特）</a></li>
+</ul>
+<p dir="auto" _msttexthash="189707921" _msthash="467">要及时了解新版本、聚会新闻等，请订阅我们的<a href="https://newsletter.weaviate.io/" rel="nofollow" _istranslated="1">时事通讯</a></p>
+</article></div>
